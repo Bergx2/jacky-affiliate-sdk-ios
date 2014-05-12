@@ -55,13 +55,17 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/showInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitial</option>
+	<option value="//api/name/hasPreloadedInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- hasPreloadedInterstitial</option>
 	
-	<option value="//api/name/showInterstitialInView:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialInView:</option>
+	<option value="//api/name/preloadInterstitialWithCompletionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- preloadInterstitialWithCompletionBlock:</option>
 	
-	<option value="//api/name/showInterstitialInView:withAppearance:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialInView:withAppearance:</option>
+	<option value="//api/name/showInterstitialInView:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialInView:completionBlock:</option>
 	
-	<option value="//api/name/showInterstitialWithAppearance:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithAppearance:</option>
+	<option value="//api/name/showInterstitialInView:withAppearance:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialInView:withAppearance:completionBlock:</option>
+	
+	<option value="//api/name/showInterstitialWithAppearance:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithAppearance:completionBlock:</option>
+	
+	<option value="//api/name/showInterstitialWithCompletionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithCompletionBlock:</option>
 	
 	<option value="//api/name/startWithAPIKey:andAPISecret:">&nbsp;&nbsp;&nbsp;&nbsp;- startWithAPIKey:andAPISecret:</option>
 	
@@ -89,6 +93,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Show Interstitials">Show Interstitials</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Preload Interstitials">Preload Interstitials</a></span></li>
+	
 </ul></li>
 
 
@@ -115,13 +121,17 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitial">showInterstitial</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasPreloadedInterstitial">hasPreloadedInterstitial</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialInView:">showInterstitialInView:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/preloadInterstitialWithCompletionBlock:">preloadInterstitialWithCompletionBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialInView:withAppearance:">showInterstitialInView:withAppearance:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialInView:completionBlock:">showInterstitialInView:completionBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithAppearance:">showInterstitialWithAppearance:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:">showInterstitialInView:withAppearance:completionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithAppearance:completionBlock:">showInterstitialWithAppearance:completionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithCompletionBlock:">showInterstitialWithCompletionBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startWithAPIKey:andAPISecret:">startWithAPIKey:andAPISecret:</a></span></li>
 	
@@ -180,19 +190,19 @@
 
 <p>Once the SDK is setup, you can start showing interstitials in your app.</p>
 
-<p>In the most simple case, you can just use <a href="#//api/name/showInterstitial"><code>showInterstitial</code></a> to show an interstitial with the default appearance in the view of your
+<p>In the most simple case, you can just use <a href="#//api/name/showInterstitialWithCompletionBlock:"><code>showInterstitialWithCompletionBlock:</code></a> to show an interstitial with the default appearance in the view of your
 application&rsquo;s key window&rsquo;s root view controller (which is what you usually want to do). If, for some reason, you want to have specify a
-different superview for the interstitial, you can do that using the <a href="#//api/name/showInterstitialInView:"><code>showInterstitialInView:</code></a> method.</p>
+different superview for the interstitial, you can do that using the <a href="#//api/name/showInterstitialInView:completionBlock:"><code>showInterstitialInView:completionBlock:</code></a> method.</p>
 
 <p>Without further configurations, interstitials are displayed with the default appearance, which looks like this:</p>
 
-<p><img src="../../images/interstitial-default-appearance.png"/></p>
+<p><img src="../images/interstitial-default-appearance.png"/></p>
 
 <p>If you want, you can customize certain aspects of that appearance, like the border color and width. Interstitial appearances are represented
 by instances of <a href="../Classes/JKYInterstitialAppearance.html"><code>JKYInterstitialAppearance</code></a> and can be configured globally, as well as overridden for individual interstitials.</p>
 
 <p>To configure a custom interstitial appearance globally, see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>. Alternatively (or additionally), you can
-use <a href="#//api/name/showInterstitialWithAppearance:"><code>showInterstitialWithAppearance:</code></a> (or <a href="#//api/name/showInterstitialInView:withAppearance:"><code>showInterstitialInView:withAppearance:</code></a> resp.) to override the global default for that individual
+use <a href="#//api/name/showInterstitialWithAppearance:completionBlock:"><code>showInterstitialWithAppearance:completionBlock:</code></a> (or <a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:"><code>showInterstitialInView:withAppearance:completionBlock:</code></a> resp.) to override the global default for that individual
 interstitial instance.</p>
 					</div>
 					
@@ -259,25 +269,45 @@ interstitial instance.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitial">&ndash;&nbsp;showInterstitial</a></code>
+		<code><a href="#//api/name/showInterstitialWithCompletionBlock:">&ndash;&nbsp;showInterstitialWithCompletionBlock:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialInView:">&ndash;&nbsp;showInterstitialInView:</a></code>
+		<code><a href="#//api/name/showInterstitialInView:completionBlock:">&ndash;&nbsp;showInterstitialInView:completionBlock:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialWithAppearance:">&ndash;&nbsp;showInterstitialWithAppearance:</a></code>
+		<code><a href="#//api/name/showInterstitialWithAppearance:completionBlock:">&ndash;&nbsp;showInterstitialWithAppearance:completionBlock:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialInView:withAppearance:">&ndash;&nbsp;showInterstitialInView:withAppearance:</a></code>
+		<code><a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:">&ndash;&nbsp;showInterstitialInView:withAppearance:completionBlock:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Preload Interstitials" name="task_Preload Interstitials"></a>
+						<h3 class="subsubtitle task-title">Preload Interstitials</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/preloadInterstitialWithCompletionBlock:">&ndash;&nbsp;preloadInterstitialWithCompletionBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasPreloadedInterstitial">&ndash;&nbsp;hasPreloadedInterstitial</a></code>
 	</span>
 	
 	
@@ -319,8 +349,8 @@ interstitial instance.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>You can specify a custom default instance of <a href="../Classes/JKYInterstitialAppearance.html"><code>JKYInterstitialAppearance</code></a>, that will be used as the default when showing interstitials.
-Of course, you can still override this default for individual interstitials via <a href="#//api/name/showInterstitialWithAppearance:"><code>showInterstitialWithAppearance:</code></a>
-(or <a href="#//api/name/showInterstitialInView:withAppearance:"><code>showInterstitialInView:withAppearance:</code></a> resp.).</p>
+Of course, you can still override this default for individual interstitials via <a href="#//api/name/showInterstitialWithAppearance:completionBlock:"><code>showInterstitialWithAppearance:completionBlock:</code></a>
+(or <a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:"><code>showInterstitialInView:withAppearance:completionBlock:</code></a> resp.).</p>
 
 <p>The predefined default interstitial appearance defines a 5px black border.</p>
 	</div>
@@ -441,18 +471,18 @@ Use this method to access this class from anywhere in your project.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/showInterstitial" title="showInterstitial"></a>
-	<h3 class="subsubtitle method-title">showInterstitial</h3>
+	<a name="//api/name/hasPreloadedInterstitial" title="hasPreloadedInterstitial"></a>
+	<h3 class="subsubtitle method-title">hasPreloadedInterstitial</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>) in the view of your application&rsquo;s key window&rsquo;s root view controller.</p>
+		<p>Query if a preloaded interstitial is available.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitial</code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasPreloadedInterstitial</code></div>
 
     
 	
@@ -461,6 +491,12 @@ Use this method to access this class from anywhere in your project.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Note: You can still call <a href="#//api/name/showInterstitialWithCompletionBlock:"><code>showInterstitialWithCompletionBlock:</code></a> if this method returns <code>NO</code>, but then the user
+might have to wait a while to see the ad.</p>
+	</div>
 	
 	
 	
@@ -477,18 +513,18 @@ Use this method to access this class from anywhere in your project.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/showInterstitialInView:" title="showInterstitialInView:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialInView:</h3>
+	<a name="//api/name/preloadInterstitialWithCompletionBlock:" title="preloadInterstitialWithCompletionBlock:"></a>
+	<h3 class="subsubtitle method-title">preloadInterstitialWithCompletionBlock:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>) in the specified superview.</p>
+		<p>Preload an interstitial to have it available immediately when calling <a href="#//api/name/showInterstitialWithCompletionBlock:"><code>showInterstitialWithCompletionBlock:</code></a> later.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialInView:(UIView *)<em>superview</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)preloadInterstitialWithCompletionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
 
     
 	
@@ -496,8 +532,8 @@ Use this method to access this class from anywhere in your project.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>superview</em></dt>
-			<dd><p>The superview to use for presenting the interstitial. Please note: This view must fill the whole screen bounds!</p></dd>
+			<dt><em>completionBlock</em></dt>
+			<dd><p>An optional completion block. Called in case of success (with <code>nil</code> as <code>error</code> argument), or failure (with appropriate <code>error</code> argument).</p></dd>
 		</dl>
 		
 	</div>
@@ -523,8 +559,59 @@ Use this method to access this class from anywhere in your project.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/showInterstitialInView:withAppearance:" title="showInterstitialInView:withAppearance:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialInView:withAppearance:</h3>
+	<a name="//api/name/showInterstitialInView:completionBlock:" title="showInterstitialInView:completionBlock:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialInView:completionBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>) in the specified superview.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showInterstitialInView:(UIView *)<em>superview</em> completionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>superview</em></dt>
+			<dd><p>The superview to use for presenting the interstitial. Please note: This view must fill the whole screen bounds!</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showInterstitialInView:withAppearance:completionBlock:" title="showInterstitialInView:withAppearance:completionBlock:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialInView:withAppearance:completionBlock:</h3>
 	
 	
 	
@@ -534,7 +621,7 @@ Use this method to access this class from anywhere in your project.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialInView:(UIView *)<em>superview</em> withAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)showInterstitialInView:(UIView *)<em>superview</em> withAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em> completionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
 
     
 	
@@ -551,6 +638,11 @@ Use this method to access this class from anywhere in your project.</p>
 			<dd><p>The custom appearance to use when presenting the interstitial.</p></dd>
 		</dl>
 		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
+		</dl>
+		
 	</div>
 	
 	
@@ -574,8 +666,8 @@ Use this method to access this class from anywhere in your project.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/showInterstitialWithAppearance:" title="showInterstitialWithAppearance:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialWithAppearance:</h3>
+	<a name="//api/name/showInterstitialWithAppearance:completionBlock:" title="showInterstitialWithAppearance:completionBlock:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialWithAppearance:completionBlock:</h3>
 	
 	
 	
@@ -585,7 +677,7 @@ Use this method to access this class from anywhere in your project.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialWithAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)showInterstitialWithAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em> completionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
 
     
 	
@@ -595,6 +687,57 @@ Use this method to access this class from anywhere in your project.</p>
 		<dl class="argument-def parameter-def">
 			<dt><em>interstitialAppearance</em></dt>
 			<dd><p>The custom appearance to use when presenting the interstitial.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showInterstitialWithCompletionBlock:" title="showInterstitialWithCompletionBlock:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialWithCompletionBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>) in the view of your application&rsquo;s key window&rsquo;s root view controller.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)showInterstitialWithCompletionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
 		</dl>
 		
 	</div>
@@ -691,7 +834,7 @@ You can obtain the required API key and secret in your <a href="http://example.c
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Jacky Media. All rights reserved. (Last updated: 2014-05-07)</span><br />
+						<p><span class="copyright">&copy; 2014 Jacky Media. All rights reserved. (Last updated: 2014-05-12)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

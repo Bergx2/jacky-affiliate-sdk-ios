@@ -39,6 +39,10 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/allowInAppAppStoreScreen">&nbsp;&nbsp;&nbsp;&nbsp;allowInAppAppStoreScreen</option>
+	
+	<option value="//api/name/automaticallyReloadInterstitialOnOrientationChange">&nbsp;&nbsp;&nbsp;&nbsp;automaticallyReloadInterstitialOnOrientationChange</option>
+	
 	<option value="//api/name/defaultInterstitialAppearance">&nbsp;&nbsp;&nbsp;&nbsp;defaultInterstitialAppearance</option>
 	
 	<option value="//api/name/testModeEnabled">&nbsp;&nbsp;&nbsp;&nbsp;testModeEnabled</option>
@@ -55,17 +59,17 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/canShowInterstitials">&nbsp;&nbsp;&nbsp;&nbsp;- canShowInterstitials</option>
+	
+	<option value="//api/name/cancelLoadingInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- cancelLoadingInterstitial</option>
+	
 	<option value="//api/name/hasPreloadedInterstitial">&nbsp;&nbsp;&nbsp;&nbsp;- hasPreloadedInterstitial</option>
 	
 	<option value="//api/name/preloadInterstitialWithCompletionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- preloadInterstitialWithCompletionBlock:</option>
 	
-	<option value="//api/name/showInterstitialInView:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialInView:completionBlock:</option>
+	<option value="//api/name/showInterstitialWithAppearance:error:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithAppearance:error:</option>
 	
-	<option value="//api/name/showInterstitialInView:withAppearance:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialInView:withAppearance:completionBlock:</option>
-	
-	<option value="//api/name/showInterstitialWithAppearance:completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithAppearance:completionBlock:</option>
-	
-	<option value="//api/name/showInterstitialWithCompletionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithCompletionBlock:</option>
+	<option value="//api/name/showInterstitialWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- showInterstitialWithError:</option>
 	
 	<option value="//api/name/startWithAPIKey:andAPISecret:">&nbsp;&nbsp;&nbsp;&nbsp;- startWithAPIKey:andAPISecret:</option>
 	
@@ -103,6 +107,10 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allowInAppAppStoreScreen">allowInAppAppStoreScreen</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/automaticallyReloadInterstitialOnOrientationChange">automaticallyReloadInterstitialOnOrientationChange</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/defaultInterstitialAppearance">defaultInterstitialAppearance</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/testModeEnabled">testModeEnabled</a></span></li>
@@ -121,17 +129,17 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canShowInterstitials">canShowInterstitials</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelLoadingInterstitial">cancelLoadingInterstitial</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasPreloadedInterstitial">hasPreloadedInterstitial</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/preloadInterstitialWithCompletionBlock:">preloadInterstitialWithCompletionBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialInView:completionBlock:">showInterstitialInView:completionBlock:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithAppearance:error:">showInterstitialWithAppearance:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:">showInterstitialInView:withAppearance:completionBlock:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithAppearance:completionBlock:">showInterstitialWithAppearance:completionBlock:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithCompletionBlock:">showInterstitialWithCompletionBlock:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showInterstitialWithError:">showInterstitialWithError:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startWithAPIKey:andAPISecret:">startWithAPIKey:andAPISecret:</a></span></li>
 	
@@ -184,26 +192,47 @@
                                         andAPISecret:@"&lt;YOUR API SECRET&gt;"];
 </code></pre>
 
-<p>That&rsquo;s all you have to do. You can find your API key and secret in the <a href="http://example.com">Jacky Affiliate dashboard</a>.</p>
+<p>That&rsquo;s all you have to do. You can find your API key and secret in the <a href="https://www.jackymedia.com/affiliate">Jacky Affiliate dashboard</a>.</p>
+
+<h3>Loading interstitials</h3>
+
+<p>To ensure a good user experience, we require you to always preload advertisements before showing them. This way, your users won&rsquo;t see any loading delay
+after you decide that it&rsquo;s a good time to show an interstitial.</p>
+
+<p>Preload an interstitial via the <a href="#//api/name/preloadInterstitialWithCompletionBlock:"><code>preloadInterstitialWithCompletionBlock:</code></a> method:</p>
+
+<pre><code>[[JKYAffiliateManager sharedManager] preloadInterstitialWithCompletionBlock:nil];
+</code></pre>
+
+<p>Since this is an asynchronous operation, you can optionally pass a completion block to be notified when it has
+finished loading and whether loading was successful or not:</p>
+
+<pre><code>[[JKYAffiliateManager sharedManager] preloadInterstitialWithCompletionBlock:^(NSError *error) {
+    // [...]
+    if(error) {
+        NSLog(@"Error loading interstitial: %@", [error localizedDescription]);
+    }
+}];
+</code></pre>
+
+<p>You can always cancel a running loading operation via <a href="#//api/name/cancelLoadingInterstitial"><code>cancelLoadingInterstitial</code></a>. To query if there currently is a preloaded
+interstitial available, use <a href="#//api/name/hasPreloadedInterstitial"><code>hasPreloadedInterstitial</code></a>.</p>
 
 <h3>Showing interstitials</h3>
 
-<p>Once the SDK is setup, you can start showing interstitials in your app.</p>
+<p>Once you have successfully preloaded an interstitial, you can show that interstitial in your app whenever you want. Showing an interstitial is a
+synchronous operation.</p>
 
-<p>In the most simple case, you can just use <a href="#//api/name/showInterstitialWithCompletionBlock:"><code>showInterstitialWithCompletionBlock:</code></a> to show an interstitial with the default appearance in the view of your
-application&rsquo;s key window&rsquo;s root view controller (which is what you usually want to do). If, for some reason, you want to have specify a
-different superview for the interstitial, you can do that using the <a href="#//api/name/showInterstitialInView:completionBlock:"><code>showInterstitialInView:completionBlock:</code></a> method.</p>
-
-<p>Without further configurations, interstitials are displayed with the default appearance, which looks like this:</p>
+<p>In the most simple case, you can just use <a href="#//api/name/showInterstitialWithError:"><code>showInterstitialWithError:</code></a> to show an interstitial with the default appearance, which looks like this:</p>
 
 <p><img src="../images/interstitial-default-appearance.png"/></p>
 
-<p>If you want, you can customize certain aspects of that appearance, like the border color and width. Interstitial appearances are represented
-by instances of <a href="../Classes/JKYInterstitialAppearance.html"><code>JKYInterstitialAppearance</code></a> and can be configured globally, as well as overridden for individual interstitials.</p>
+<p>If you want, you can customize certain aspects of that appearance, like the border color, border width, background color or show/hide animation.
+Interstitial appearances are represented by instances of <a href="../Classes/JKYInterstitialAppearance.html"><code>JKYInterstitialAppearance</code></a> and can be configured globally, as well as
+overridden for individual interstitials.</p>
 
 <p>To configure a custom interstitial appearance globally, see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>. Alternatively (or additionally), you can
-use <a href="#//api/name/showInterstitialWithAppearance:completionBlock:"><code>showInterstitialWithAppearance:completionBlock:</code></a> (or <a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:"><code>showInterstitialInView:withAppearance:completionBlock:</code></a> resp.) to override the global default for that individual
-interstitial instance.</p>
+use <a href="#//api/name/showInterstitialWithAppearance:error:"><code>showInterstitialWithAppearance:error:</code></a> to override the global default for that individual interstitial instance.</p>
 					</div>
 					
 					
@@ -255,7 +284,19 @@ interstitial instance.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/allowInAppAppStoreScreen">&nbsp;&nbsp;allowInAppAppStoreScreen</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/testModeEnabled">&nbsp;&nbsp;testModeEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/automaticallyReloadInterstitialOnOrientationChange">&nbsp;&nbsp;automaticallyReloadInterstitialOnOrientationChange</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -269,25 +310,19 @@ interstitial instance.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialWithCompletionBlock:">&ndash;&nbsp;showInterstitialWithCompletionBlock:</a></code>
+		<code><a href="#//api/name/canShowInterstitials">&ndash;&nbsp;canShowInterstitials</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialInView:completionBlock:">&ndash;&nbsp;showInterstitialInView:completionBlock:</a></code>
+		<code><a href="#//api/name/showInterstitialWithError:">&ndash;&nbsp;showInterstitialWithError:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialWithAppearance:completionBlock:">&ndash;&nbsp;showInterstitialWithAppearance:completionBlock:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:">&ndash;&nbsp;showInterstitialInView:withAppearance:completionBlock:</a></code>
+		<code><a href="#//api/name/showInterstitialWithAppearance:error:">&ndash;&nbsp;showInterstitialWithAppearance:error:</a></code>
 	</span>
 	
 	
@@ -302,6 +337,12 @@ interstitial instance.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/preloadInterstitialWithCompletionBlock:">&ndash;&nbsp;preloadInterstitialWithCompletionBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelLoadingInterstitial">&ndash;&nbsp;cancelLoadingInterstitial</a></code>
 	</span>
 	
 	
@@ -323,6 +364,97 @@ interstitial instance.</p>
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/allowInAppAppStoreScreen" title="allowInAppAppStoreScreen"></a>
+	<h3 class="subsubtitle method-title">allowInAppAppStoreScreen</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Control if advertised apps should be displayed in an in-app AppStore screen, rather than switching to the external AppStore app (default: <code>YES</code>).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL allowInAppAppStoreScreen</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If set to <code>YES</code> (the default), when tapping an ad of an iOS app, the SDK will show that app&rsquo;s description via an in-app <code>SKStoreProductViewController</code>,
+rather than opening the external iOS AppStore app. This has the advantage of driving less users away from your app.</p>
+
+<p>The <code>SKStoreProductViewController</code> will be presented modally on the application&rsquo;s key window&rsquo;s root view controller.</p><div class="warning"><p><strong>Please note:</strong> Make sure to (weakly) link the <code>StoreKit</code> framework, otherwise this feature won&rsquo;t be available.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/automaticallyReloadInterstitialOnOrientationChange" title="automaticallyReloadInterstitialOnOrientationChange"></a>
+	<h3 class="subsubtitle method-title">automaticallyReloadInterstitialOnOrientationChange</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Control automatic reloading of preloaded interstitials when the interface orientation changes (default: <code>YES</code>).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL automaticallyReloadInterstitialOnOrientationChange</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The advertisements that are displayed in interstitials are orientation-dependent. When you preload an interstitial, the SDK
+will always load an interstitial for the <em>current</em> interface orientation. Thus, if the user rotates device between your calls
+to <a href="#//api/name/preloadInterstitialWithCompletionBlock:"><code>preloadInterstitialWithCompletionBlock:</code></a> and <a href="#//api/name/showInterstitialWithError:"><code>showInterstitialWithError:</code></a>, the cached interstitial has the wrong orientation
+and you will receive a <code>JKYAffiliateErrorWrongAdvertisementOrientation</code> error.</p>
+
+<p>However, if automatic reloading on orientation change is enabled (which it is by default), the SDK will automatically detect
+orientation changes and refresh any cached interstitials for the new interface orientation.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/defaultInterstitialAppearance" title="defaultInterstitialAppearance"></a>
@@ -349,8 +481,7 @@ interstitial instance.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>You can specify a custom default instance of <a href="../Classes/JKYInterstitialAppearance.html"><code>JKYInterstitialAppearance</code></a>, that will be used as the default when showing interstitials.
-Of course, you can still override this default for individual interstitials via <a href="#//api/name/showInterstitialWithAppearance:completionBlock:"><code>showInterstitialWithAppearance:completionBlock:</code></a>
-(or <a href="#//api/name/showInterstitialInView:withAppearance:completionBlock:"><code>showInterstitialInView:withAppearance:completionBlock:</code></a> resp.).</p>
+Of course, you can still override this default for individual interstitials via <a href="#//api/name/showInterstitialWithAppearance:error:"><code>showInterstitialWithAppearance:error:</code></a>.</p>
 
 <p>The predefined default interstitial appearance defines a 5px black border.</p>
 	</div>
@@ -393,7 +524,7 @@ Of course, you can still override this default for individual interstitials via 
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>If test mode is enabled, only demo interstitials will presented. No partnership or further configuration of your affiliate account are necessary.</p>
+		<p>If test mode is enabled, only demo interstitials will be presented. No partnership or further configuration of your affiliate account is necessary.</p>
 
 <p>Defaults to <code>NO</code>.</p><div class="warning"><p><strong>Please note:</strong> Even with test mode enabled, you still need a Jacky affiliate account and call <a href="#//api/name/startWithAPIKey:andAPISecret:"><code>startWithAPIKey:andAPISecret:</code></a> with your API key and API secret!</p></div>
 	</div>
@@ -471,13 +602,104 @@ Use this method to access this class from anywhere in your project.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/canShowInterstitials" title="canShowInterstitials"></a>
+	<h3 class="subsubtitle method-title">canShowInterstitials</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Check <em>general</em> preconditions for showing interstitials. This checks things such as if the device is supported, everything is initialized etc.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)canShowInterstitials</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><code>YES</code> if all general preconditions are fulfilled; <code>NO</code> otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>You can use this method, if you need to check up-front if Jacky interstitials are generally available. However, you don&rsquo;t need
+to call this prior to calling other methods like <a href="#//api/name/showInterstitialWithError:"><code>showInterstitialWithError:</code></a>. Those methods will check the
+preconditions themselves and pass an appropriate error to their completion blocks if the check fails.</p><div class="warning"><p><strong>Important:</strong> This method only checks the <strong>general</strong> ability to show interstitials, but does not tell anything about
+the <strong>specific</strong> availability of ads. Thus, even if this method returns <code>YES</code>, it might very well happen that there is no
+suitable ad available, and thus <a href="#//api/name/preloadInterstitialWithCompletionBlock:"><code>preloadInterstitialWithCompletionBlock:</code></a> returns an error.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cancelLoadingInterstitial" title="cancelLoadingInterstitial"></a>
+	<h3 class="subsubtitle method-title">cancelLoadingInterstitial</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Cancel any pending asynchronous loading of interstitials (that has been triggered via <a href="#//api/name/preloadInterstitialWithCompletionBlock:"><code>preloadInterstitialWithCompletionBlock:</code></a>).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)cancelLoadingInterstitial</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Any pending preload completion blocks will be called with a <code>JKYAffiliateErrorOperationCancelled</code> error code.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/hasPreloadedInterstitial" title="hasPreloadedInterstitial"></a>
 	<h3 class="subsubtitle method-title">hasPreloadedInterstitial</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Query if a preloaded interstitial is available.</p>
+		<p>Query if a preloaded interstitial is available. If this method returns <code>NO</code>, you won&rsquo;t be able to show interstitials.</p>
 	</div>		
 	
     
@@ -491,12 +713,6 @@ Use this method to access this class from anywhere in your project.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Note: You can still call <a href="#//api/name/showInterstitialWithCompletionBlock:"><code>showInterstitialWithCompletionBlock:</code></a> if this method returns <code>NO</code>, but then the user
-might have to wait a while to see the ad.</p>
-	</div>
 	
 	
 	
@@ -519,7 +735,7 @@ might have to wait a while to see the ad.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Preload an interstitial to have it available immediately when calling <a href="#//api/name/showInterstitialWithCompletionBlock:"><code>showInterstitialWithCompletionBlock:</code></a> later.</p>
+		<p>Preload an interstitial to have it available immediately when calling <a href="#//api/name/showInterstitialWithError:"><code>showInterstitialWithError:</code></a> later.</p>
 	</div>		
 	
     
@@ -533,7 +749,7 @@ might have to wait a while to see the ad.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>completionBlock</em></dt>
-			<dd><p>An optional completion block. Called in case of success (with <code>nil</code> as <code>error</code> argument), or failure (with appropriate <code>error</code> argument).</p></dd>
+			<dd><p>An optional completion block. Called in case of success (with <code>nil</code> as <code>error</code> argument), or failure (with appropriate <code>error</code> argument, see <a href="../Constants/JKYAffiliateErrorCode.html"><code>JKYAffiliateErrorCode</code></a>).</p></dd>
 		</dl>
 		
 	</div>
@@ -543,6 +759,13 @@ might have to wait a while to see the ad.</p>
 	
 	
 	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Important:</strong> To not cause unnecessary (mobile) traffic for your users, you should only preload an interstitial
+if you know that you will show it shortly after! Moreover, preloaded <strong>interstitials will expire</strong> after some time (the exact
+time should be considered an implementation detail, but expect &ldquo;a few minutes&rdquo;).</p></div>
+	</div>
 	
 	
 	
@@ -559,125 +782,18 @@ might have to wait a while to see the ad.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/showInterstitialInView:completionBlock:" title="showInterstitialInView:completionBlock:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialInView:completionBlock:</h3>
+	<a name="//api/name/showInterstitialWithAppearance:error:" title="showInterstitialWithAppearance:error:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialWithAppearance:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>) in the specified superview.</p>
+		<p>Show an interstitial with the specified custom appearance.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialInView:(UIView *)<em>superview</em> completionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>superview</em></dt>
-			<dd><p>The superview to use for presenting the interstitial. Please note: This view must fill the whole screen bounds!</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completionBlock</em></dt>
-			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/showInterstitialInView:withAppearance:completionBlock:" title="showInterstitialInView:withAppearance:completionBlock:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialInView:withAppearance:completionBlock:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Show an interstitial with the specified custom appearance in the specified superview.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialInView:(UIView *)<em>superview</em> withAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em> completionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>superview</em></dt>
-			<dd><p>The view to use as a superview when for the interstitial. Please note: This view must fill the whole screen bounds!</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>interstitialAppearance</em></dt>
-			<dd><p>The custom appearance to use when presenting the interstitial.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completionBlock</em></dt>
-			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JKYAffiliateManager.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/showInterstitialWithAppearance:completionBlock:" title="showInterstitialWithAppearance:completionBlock:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialWithAppearance:completionBlock:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Show an interstitial with the specified custom appearance in the view of your application&rsquo;s key window&rsquo;s root view controller.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialWithAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em> completionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)showInterstitialWithAppearance:(JKYInterstitialAppearance *)<em>interstitialAppearance</em> error:(NSError *__autoreleasing *)<em>error</em></code></div>
 
     
 	
@@ -690,13 +806,18 @@ might have to wait a while to see the ad.</p>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>completionBlock</em></dt>
-			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
+			<dt><em>error</em></dt>
+			<dd><p>If you pass a reference to an <code>NSError</code> instance, this will contain an appropriate error in case of failure (out param).</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><code>YES</code> if the interstitial could be successfully shown; <code>NO</code> otherwise (in this case, the error out-param will contain an appropriate error).</p>
+	</div>
 	
 	
 	
@@ -717,18 +838,18 @@ might have to wait a while to see the ad.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/showInterstitialWithCompletionBlock:" title="showInterstitialWithCompletionBlock:"></a>
-	<h3 class="subsubtitle method-title">showInterstitialWithCompletionBlock:</h3>
+	<a name="//api/name/showInterstitialWithError:" title="showInterstitialWithError:"></a>
+	<h3 class="subsubtitle method-title">showInterstitialWithError:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>) in the view of your application&rsquo;s key window&rsquo;s root view controller.</p>
+		<p>Show an interstitial with the default appearance (see <a href="#//api/name/defaultInterstitialAppearance"><code>defaultInterstitialAppearance</code></a>).</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)showInterstitialWithCompletionBlock:(JKYCompletionBlock)<em>completionBlock</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)showInterstitialWithError:(NSError *__autoreleasing *)<em>error</em></code></div>
 
     
 	
@@ -736,13 +857,18 @@ might have to wait a while to see the ad.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>completionBlock</em></dt>
-			<dd><p>An optional completion block. Either called due to an error (with an <code>error</code> argument), or when the user has closed the interstitial (<code>error == nil</code>).</p></dd>
+			<dt><em>error</em></dt>
+			<dd><p>If you pass a reference to an <code>NSError</code> instance, this will contain an appropriate error in case of failure (out param).</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><code>YES</code> if the interstitial could be successfully shown; <code>NO</code> otherwise (in this case, the error out-param will contain an appropriate error).</p>
+	</div>
 	
 	
 	
@@ -802,7 +928,7 @@ might have to wait a while to see the ad.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Typically, you want to do that in your app delegate&rsquo;s <code>application:didFinishLaunchingWithOptions:</code>.
-You can obtain the required API key and secret in your <a href="http://example.com">Jacky Affiliate dashboard</a> after creating an affiliate account.</p><div class="warning"><p><strong>Important:</strong> You need to call this method prior to executing any actions (like showing interstitials).</p></div>
+You can obtain the required API key and secret in your <a href="https://www.jackymedia.com/affiliate">Jacky Affiliate dashboard</a> after creating an affiliate account.</p><div class="warning"><p><strong>Important:</strong> You need to call this method prior to executing any actions (like loading or showing interstitials).</p></div>
 	</div>
 	
 	
@@ -834,7 +960,7 @@ You can obtain the required API key and secret in your <a href="http://example.c
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Jacky Media. All rights reserved. (Last updated: 2014-05-12)</span><br />
+						<p><span class="copyright">&copy; 2014 Jacky Media. All rights reserved. (Last updated: 2014-11-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

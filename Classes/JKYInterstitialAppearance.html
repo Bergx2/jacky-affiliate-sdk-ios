@@ -39,9 +39,17 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/animation">&nbsp;&nbsp;&nbsp;&nbsp;animation</option>
+	
+	<option value="//api/name/backgroundColor">&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor</option>
+	
 	<option value="//api/name/borderColor">&nbsp;&nbsp;&nbsp;&nbsp;borderColor</option>
 	
 	<option value="//api/name/borderWidth">&nbsp;&nbsp;&nbsp;&nbsp;borderWidth</option>
+	
+	<option value="//api/name/closeButtonCircleFillColor">&nbsp;&nbsp;&nbsp;&nbsp;closeButtonCircleFillColor</option>
+	
+	<option value="//api/name/closeButtonCrossColor">&nbsp;&nbsp;&nbsp;&nbsp;closeButtonCrossColor</option>
 	
 	
 	
@@ -80,9 +88,17 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animation">animation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/backgroundColor">backgroundColor</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/borderColor">borderColor</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/borderWidth">borderWidth</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/closeButtonCircleFillColor">closeButtonCircleFillColor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/closeButtonCrossColor">closeButtonCrossColor</a></span></li>
 	
 </ul></li>
 
@@ -135,7 +151,7 @@
 
 <p>You can either set a custom appearance globally (see <a href="../Classes/JKYAffiliateManager.html#//api/name/defaultInterstitialAppearance"><code>[JKYAffiliateManager setDefaultInterstitialAppearance:]</code></a>),
 or override the default by specifying an instance of this class when showing an interstitial (see
-<a href="../Classes/JKYAffiliateManager.html#//api/name/showInterstitialWithAppearance:completionBlock:"><code>[JKYAffiliateManager showInterstitialWithAppearance:completionBlock:]</code></a>).</p>
+<a href="../Classes/JKYAffiliateManager.html#//api/name/showInterstitialWithAppearance:error:"><code>[JKYAffiliateManager showInterstitialWithAppearance:error:]</code></a>).</p>
 					</div>
 					
 					
@@ -167,6 +183,12 @@ or override the default by specifying an instance of this class when showing an 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
+		<code><a href="#//api/name/backgroundColor">&nbsp;&nbsp;backgroundColor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/borderWidth">&nbsp;&nbsp;borderWidth</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -174,6 +196,24 @@ or override the default by specifying an instance of this class when showing an 
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/borderColor">&nbsp;&nbsp;borderColor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/closeButtonCircleFillColor">&nbsp;&nbsp;closeButtonCircleFillColor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/closeButtonCrossColor">&nbsp;&nbsp;closeButtonCrossColor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animation">&nbsp;&nbsp;animation</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -189,6 +229,88 @@ or override the default by specifying an instance of this class when showing an 
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/animation" title="animation"></a>
+	<h3 class="subsubtitle method-title">animation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The animation used when showing/hiding the interstitial. See <a href="../Constants/JKYInterstitialAnimation.html"><code>JKYInterstitialAnimation</code></a> for an explanation of available animations.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) JKYInterstitialAnimation animation</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Default is <code>&lt;JKYInterstitialAnimationZoom&gt;</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYInterstitialAppearance.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/backgroundColor" title="backgroundColor"></a>
+	<h3 class="subsubtitle method-title">backgroundColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The color of the background overlay behind the interstitial.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *backgroundColor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Default is black with 60% alpha.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYInterstitialAppearance.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/borderColor" title="borderColor"></a>
@@ -243,7 +365,7 @@ or override the default by specifying an instance of this class when showing an 
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGFloat borderWidth</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat borderWidth</code></div>
 
     
 	
@@ -256,6 +378,88 @@ or override the default by specifying an instance of this class when showing an 
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Default is 5pt.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYInterstitialAppearance.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/closeButtonCircleFillColor" title="closeButtonCircleFillColor"></a>
+	<h3 class="subsubtitle method-title">closeButtonCircleFillColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The background color of the close button.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *closeButtonCircleFillColor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Default is black with 90% alpha.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JKYInterstitialAppearance.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/closeButtonCrossColor" title="closeButtonCrossColor"></a>
+	<h3 class="subsubtitle method-title">closeButtonCrossColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The foreground color of the close button (i.e. the cross).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *closeButtonCrossColor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Default is white.</p>
 	</div>
 	
 	
@@ -338,7 +542,7 @@ or override the default by specifying an instance of this class when showing an 
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Jacky Media. All rights reserved. (Last updated: 2014-05-12)</span><br />
+						<p><span class="copyright">&copy; 2014 Jacky Media. All rights reserved. (Last updated: 2014-11-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
